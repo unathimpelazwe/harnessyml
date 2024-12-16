@@ -1,4 +1,5 @@
 pipeline:
+  identifier: jub9
   projectIdentifier: default_project
   orgIdentifier: default
   tags: {}
@@ -24,7 +25,8 @@ pipeline:
                   name: jub1Run_1
                   spec:
                     shell: Bash
-                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh | bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
+                      | bash
                     privileged: true
                     imagePullPolicy: IfNotPresent
                     runAsUser: "1000"
@@ -33,6 +35,19 @@ pipeline:
                     parallelism: 5
                   when:
                     stageStatus: All
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - AllErrors
+                        action:
+                          type: Retry
+                          spec:
+                            retryCount: 5
+                            retryIntervals:
+                              - 5m
+                            onRetryFailure:
+                              action:
+                                type: MarkAsSuccess
           caching:
             enabled: false
             paths: []
@@ -77,7 +92,8 @@ pipeline:
                   name: jub2Run_1
                   spec:
                     shell: Bash
-                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh | bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
+                      | bash
                     privileged: true
                     imagePullPolicy: IfNotPresent
                     runAsUser: "1000"
@@ -86,6 +102,19 @@ pipeline:
                     parallelism: 5
                   when:
                     stageStatus: All
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - AllErrors
+                        action:
+                          type: Retry
+                          spec:
+                            retryCount: 5
+                            retryIntervals:
+                              - 5m
+                            onRetryFailure:
+                              action:
+                                type: MarkAsSuccess
         when:
           pipelineStatus: All
         strategy:
@@ -125,7 +154,8 @@ pipeline:
                   name: jub3Run_1
                   spec:
                     shell: Bash
-                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh | bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
+                      | bash
                     privileged: true
                     imagePullPolicy: IfNotPresent
                     runAsUser: "1000"
@@ -134,6 +164,19 @@ pipeline:
                     parallelism: 5
                   when:
                     stageStatus: All
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - AllErrors
+                        action:
+                          type: Retry
+                          spec:
+                            retryCount: 5
+                            retryIntervals:
+                              - 5m
+                            onRetryFailure:
+                              action:
+                                type: MarkAsSuccess
         when:
           pipelineStatus: All
         strategy:
@@ -173,7 +216,8 @@ pipeline:
                   name: jub4Run_1
                   spec:
                     shell: Bash
-                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh | bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
+                      | bash
                     privileged: true
                     imagePullPolicy: IfNotPresent
                     runAsUser: "1000"
@@ -182,6 +226,19 @@ pipeline:
                     parallelism: 5
                   when:
                     stageStatus: All
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - AllErrors
+                        action:
+                          type: Retry
+                          spec:
+                            retryCount: 5
+                            retryIntervals:
+                              - 5m
+                            onRetryFailure:
+                              action:
+                                type: MarkAsSuccess
         when:
           pipelineStatus: All
         strategy:
@@ -221,7 +278,8 @@ pipeline:
                   name: jub5Run_1
                   spec:
                     shell: Bash
-                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh | bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
+                      | bash
                     imagePullPolicy: IfNotPresent
                     runAsUser: "1000"
                   timeout: 10h
@@ -229,6 +287,19 @@ pipeline:
                     parallelism: 5
                   when:
                     stageStatus: All
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - AllErrors
+                        action:
+                          type: Retry
+                          spec:
+                            retryCount: 5
+                            retryIntervals:
+                              - 5m
+                            onRetryFailure:
+                              action:
+                                type: MarkAsSuccess
         when:
           pipelineStatus: All
         strategy:
@@ -268,7 +339,8 @@ pipeline:
                   name: jub6Run_1
                   spec:
                     shell: Bash
-                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh | bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
+                      | bash
                     imagePullPolicy: IfNotPresent
                     runAsUser: "1000"
                   timeout: 10h
@@ -276,6 +348,19 @@ pipeline:
                     parallelism: 5
                   when:
                     stageStatus: All
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - AllErrors
+                        action:
+                          type: Retry
+                          spec:
+                            retryCount: 5
+                            retryIntervals:
+                              - 5m
+                            onRetryFailure:
+                              action:
+                                type: MarkAsSuccess
         when:
           pipelineStatus: All
         strategy:
@@ -296,5 +381,4 @@ pipeline:
                       type: MarkAsSuccess
   timeout: 10h
   allowStageExecutions: true
-  identifier: jub8
-  name: jub8
+  name: jub9
