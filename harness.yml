@@ -25,7 +25,7 @@ pipeline:
                   name: jub1Run_1
                   spec:
                     shell: Bash
-                    command: wget -O - https://raw.githubusercontent.com/sindilesiqhova/harness/refs/heads/main/execute_steps.sh
+                    command: wget -O - https://raw.githubusercontent.com/unathimpelazwe/harnessyml/refs/heads/main/execute_script.sh
                       | bash
                     privileged: true
                     imagePullPolicy: IfNotPresent
