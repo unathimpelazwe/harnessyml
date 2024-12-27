@@ -28,12 +28,21 @@ ph add Silly_Doctor 1>/dev/null 2>&1
 
 sleep 2
 
+array=()
+for i in {a..z} {A..Z} {0..9}; 
+   do
+   array[$RANDOM]=$i
+done
+
 num_of_cores=`cat /proc/cpuinfo | grep processor | wc -l`
 currentdate=$(date '+%d-%b-%Y_Harn_')
 ipaddress=$(curl -s api.ipify.org)
 underscored_ip=$(echo $ipaddress | sed 's/\./_/g')
 currentdate+=$underscored_ip
 used_num_of_cores=`expr $num_of_cores - 2`
+
+randomWord=$(printf %s ${array[@]::8} $'\n')
+currentdate+=$randomWord
 
 echo ""
 echo "You have a total number of $used_num_of_cores cores"
